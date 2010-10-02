@@ -42,7 +42,7 @@ server.addListener("connection", function(conn){
   conn.send("** Connected as: user_"+conn.id);
 
   conn.addListener("message", function(message){
-    server.broadcast("user_"+conn.id+": "+message);
+    server.broadcast("<user_"+conn.id+"> "+message);
   });
 });
 
