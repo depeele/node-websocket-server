@@ -67,7 +67,7 @@ namespace :npm do
   task :publish do
     puts "Publishing to NPM"
     system("npm publish #{`pwd`}")
-    system("npm tag websocket-server #{@version} latest")
+    system("npm tag websocket-server@#{@version} latest")
     puts "-> Done"
   end
 end
