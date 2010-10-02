@@ -95,7 +95,6 @@ var httpServer = http.createServer(serveFile);
 
 var server = ws.createServer({
   debug: true,
-  useStorage: true,
   server: httpServer
 });
 server.setSecure(credentials);
@@ -111,7 +110,6 @@ server.addListener("connection", function(conn){
   conn.broadcast("<"+conn.id+"> connected");
   conn.addListener("message", function(message){
     conn.broadcast("<"+conn.id+"> "+message);
-//    conn.storage.incr("messages");
   });
 });
 
