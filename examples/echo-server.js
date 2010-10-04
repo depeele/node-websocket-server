@@ -1,7 +1,7 @@
 var sys = require("sys")
   , ws = require('../lib/ws');
 
-var server = ws.createServer();
+var server = ws.createServer({debug: true});
 
 server.addListener("listening", function(){
   sys.log("Listening for connections.");
@@ -12,7 +12,7 @@ server.addListener("connection", function(conn){
   conn.send("Connection: "+conn.id);
 
   conn.addListener("message", function(message){
-    conn.broadcast("<"+conn.id+"> "+message);
+    server.broadcast("<"+conn.id+"> "+message);
   });
 });
 
